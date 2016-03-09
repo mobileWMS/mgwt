@@ -73,8 +73,8 @@ public abstract class ButtonBase extends TouchWidget implements HasText {
 
         @Override
         public void onTouchCancel(TouchCancelEvent event) {
-          event.stopPropagation();
-          event.preventDefault();
+//          event.preventDefault();
+//          event.stopPropagation();
           removeStyleName(ButtonBase.this.baseAppearance.css().active());
           if (TouchSupport.isTouchEventsEmulatedUsingMouseEvents()) {
             DOM.releaseCapture(getElement());
@@ -84,8 +84,8 @@ public abstract class ButtonBase extends TouchWidget implements HasText {
 
         @Override
         public void onTouchEnd(TouchEndEvent event) {
-          event.stopPropagation();
-          event.preventDefault();
+//          event.preventDefault();
+//          event.stopPropagation();
           removeStyleName(ButtonBase.this.baseAppearance.css().active());
           if (TouchSupport.isTouchEventsEmulatedUsingMouseEvents()) {
             DOM.releaseCapture(getElement());
@@ -95,16 +95,17 @@ public abstract class ButtonBase extends TouchWidget implements HasText {
 
         @Override
         public void onTouchMove(TouchMoveEvent event) {
-          event.preventDefault();
-          event.stopPropagation();
+//          event.preventDefault();
+//          event.stopPropagation();
         }
 
         @Override
         public void onTouchStart(TouchStartEvent event) {
-          event.stopPropagation();
-          event.preventDefault();
+//          event.preventDefault();
+//          event.stopPropagation();
           addStyleName(ButtonBase.this.baseAppearance.css().active());
           if (TouchSupport.isTouchEventsEmulatedUsingMouseEvents()) {
+            event.stopPropagation();
             DOM.setCapture(getElement());
           }
           active = true;
